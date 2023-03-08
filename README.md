@@ -1,4 +1,4 @@
-# Getting Started with Weathernyzer
+# Getting Started with youtube-downloader-cli-app
 
 ## Project Specifications
 
