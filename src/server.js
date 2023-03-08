@@ -1,14 +1,5 @@
-import readline from "readline";
-import downloader from "./utitlities/downloader.js";
+import acceptYoutubeURL from "./utitlities/acceptYoutubeUrl.js";
 
-// const readlineInput = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
-// readlineInput.question(`What's your name?`, (name) => {
-//   console.log(`Hi ${name}!`);
-//   readlineInput.close();
-// });
-
-downloader();
+console.log("Welcome to youtube Downloader.");
+console.log("Input a url to begin");
+acceptYoutubeURL();
