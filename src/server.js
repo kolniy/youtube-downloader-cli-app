@@ -13,11 +13,15 @@ app.use(express.json({ extended: false }));
 
 app.post("/youtube/download", async (req, res) => {
   const { url } = req.body;
-  if (isYoutubeUrl(url)) {
-    const downloadResponse = await downloader(url);
-    res.json(downloadResponse);
-  } else {
-    res.status(400).json({ msg: "Invalid youtube url" });
+  try {
+    if (isYoutubeUrl(url)) {
+      const downloadResponse = await downloader(url);
+      res.json(downloadResponse);
+    } else {
+      res.status(400).json({ msg: "Invalid youtube url" });
+    }
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
   }
 });
 

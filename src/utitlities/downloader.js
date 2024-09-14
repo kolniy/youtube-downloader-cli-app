@@ -15,6 +15,7 @@ const downloader = async (url) => {
   } catch (error) {
     console.log("Error Downloading video");
     console.log("Try again later.");
+    throw new Error("Error Downloading video, Try again later");
     // acceptYoutubeURL();
   }
 };
