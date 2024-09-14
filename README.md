@@ -1,7 +1,5 @@
 # youtube-downloader-api-app
 
-# youtube-downloader-cli-app
-
 ## Project Overview
 
 A utility Node.js API application that allows users to download YouTube videos by providing the video URL.

@@ -9,6 +9,10 @@
     "dev": "nodemon --ignore --exec babel-node ./src/server.js",
     "start-app": "npm install && npm start"
   },
+  "engines": {
+    "node": "18.19.1",
+    "npm": "10.2.4"
+  },
   "type": "module",
   "author": "kolawole olaniyi",
   "license": "ISC",
