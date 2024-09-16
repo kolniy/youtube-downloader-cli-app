@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run test",
     "start": "node ./src/server.js",
-    "dev": "nodemon --ignore --exec babel-node ./src/server.js",
+    "dev": "env-cmd -f ./.env nodemon --ignore --exec babel-node ./src/server.js",
     "start-app": "npm install && npm start"
   },
   "engines": {
@@ -23,6 +23,8 @@
     "@babel/preset-env": "^7.20.2"
   },
   "dependencies": {
+    "axios": "^1.7.7",
+    "env-cmd": "^10.1.0",
     "express": "^4.21.0",
     "progress-estimator": "^0.3.0",
     "youtube-dl-exec": "^3.0.7"
