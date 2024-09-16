@@ -1,5 +1,6 @@
 import express from "express";
 import axios from "axios";
+import cors from "cors";
 import isYoutubeUrl from "./utitlities/validateUrl.js";
 import downloader from "./utitlities/downloader.js";
 
@@ -7,6 +8,13 @@ const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.use(express.json({ extended: false }));
+
+// Enable CORS for all origins or specific origins
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Frontend URL
+  })
+);
 
 // console.log("Welcome to youtube Downloader.");
 // console.log("Input a url to begin");
@@ -31,8 +39,13 @@ app.post("/youtube/download", async (req, res) => {
 });
 
 app.post("/api/v1/google/locator", async (req, res) => {
-  const location = req.body.location;
+  const { location, token } = req.body;
   const { lat, lng } = location;
+
+  if (token !== process.env.token) {
+    return res.status(400).json({ msg: "Unauthorized Access" });
+  }
+
   try {
     const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=volunteer&location=${lat},${lng}&radius=10000&key=${process.env.googleAPIKEY}&type=volunteer`;
     const response = await axios.get(url);
